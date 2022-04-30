@@ -1,0 +1,83 @@
+<%= render "shared/second_header"%>
+
+
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+
+<div class='form-wrap bg-light '>
+  <div class='form-header'>
+    <h1 class='text-center'>
+      会員情報入力
+    </h1>
+  </div>
+
+
+  <%= render 'shared/error_messages', model: f.object%>
+
+    <div class="form-group text-center">
+      <div class="weight-bold-text">
+        <label class="text">バイク画像</label>
+        <span class="form-text">必須</span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.file_field :image, id:"item-image" ,class:"form-control-file col-3"%>
+      </div>
+    </div>
+  <div class="form-group text-center">
+    <div class='form-text-wrap'>
+      <label class="text">ニックネーム</label>
+      <span class="form-text">必須</span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="col-3">
+      <%= f.text_field :nickname, class:"form-control ", id:"nickname", placeholder:"例) ナナハン太郎", maxlength:"40" %>
+    </div>
+    </div>
+  </div>
+  <div class="form-group text-center">
+    <div class='form-text-wrap'>
+      <label class="text">メールアドレス</label>
+      <span class="form-text">必須</span>
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="col-3">
+    <%= f.email_field :email, class:"form-control col-sm-3", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+  </div>
+    <div class="form-group text-center">
+    <div class='form-text-wrap'>
+      <label class="text">都道府県</label>
+      <span class="form-text">必須</span>
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="col-3">
+    <%= f.collection_select(:address_id, @address, :id, :name, {}, {class:"form-control col-sm-3", id:"item-prefecture"}) %>
+    </div>
+    </div>
+  <div class="form-group text-center">
+    <div class='form-text-wrap'>
+      <label class="text">パスワード</label>
+      <span class="form-text">必須</span>
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="col-3">
+    <%= f.password_field :password, class:"form-control col-sm-3", id:"password", placeholder:"6文字以上の半角英数字" %>
+    </div>
+    </div>
+    <div class=''>※英字と数字の両方を含めて設定してください</div>
+  
+  <div class="form-group text-center">
+    <div class='form-text-wrap'>
+      <label class="text">パスワード(確認)</label>
+      <span class="form-text">必須</span>
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="col-3">
+    <%= f.password_field :password_confirmation, class:"form-control col-sm-3", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+  </div>
+  </div>
+
+  <div class='register-btn'>
+    <%= f.submit "会員登録" ,class:"btn btn-outline-primary " %>
+<% end %>
+
+<%= render "shared/second_footer"%>

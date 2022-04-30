@@ -3,37 +3,42 @@
   <div class="subtitle" >
     新着画像
   </div>
-  <ul class='item-lists'>
-    <%# <% @items.each do |item|%>
+  <ul class='item-lists slider'>
+    <% @tweets.each do |tweet|%>
     <li class='list'>
-      <%= link_to "#" do %>
-      <div class='item-img-content'>
-        <%= image_tag "IMG_8570-2.jpg", class: "item-img" %>
+      <%= link_to tweet_path(tweet) do %>
+      <div class='tweet-img-content'>
+        <%= image_tag tweet.image, class: "item-img" if tweet.image.attached? %>
       </div>
       <div class='item-info'>
         <h3 class='item-name'>
-          <%= "真夜中ツーリング" %>
+          <%= tweet.title %>
         </h3>
       </div>
       <% end %>
     </li>
+    <% end %>
   </ul>
-  <div class="subtitle" >みんなの愛車紹介</div>
-  <ul class='item-lists'>
-    <%# <% @items.each do |item|%>
+  <div class="subtitle" >
+  みんなの愛車紹介
+  </div>
+  <ul class='item-lists slider'>
+    <% @users.each do |users|%>
     <li class='list'>
       <%= link_to "#" do %>
       <div class='item-img-content'>
-        <%= image_tag "49560EFB-76F2-47C7-A82C-0C6FF706B69E_1_105_c.jpeg", class: "item-img" %>
+        <%= image_tag users.image, class: "item-img" if users.image.attached? %>
       </div>
       <div class='item-info'>
         <h3 class='item-name'>
-          <%= "NC-750X!!" %>
+          <%= users.nickname %>
         </h3>
       </div>
       <% end %>
     </li>
-  </ul>  <div class="subtitle" >いま注目の人気記事！</div>
+    <% end %>
+  </ul>
+  <div class="subtitle" >いま注目の人気記事！</div>
   <ul class='item-lists'>
     <%# <% @items.each do |item|%>
     <li class='list'>

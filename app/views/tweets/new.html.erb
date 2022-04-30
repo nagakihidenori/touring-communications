@@ -1,0 +1,28 @@
+<%= render "shared/second_header"%>
+
+<div class="text-center bg-light">
+  <div class="form-group">
+    <h3>投稿する</h3>
+    <%= form_with(model: @tweet, local: true) do |f| %>
+        <div class="img-upload">
+      <div class="weight-bold-text">
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックして画像をアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+        <div class="d-flex justify-content-center">
+      <div class="col-3">
+      <%= f.text_field :title, placeholder: "タイトル",class: "form-control" %>
+      <%= f.text_area :text, placeholder: "text", rows: "10" ,class: "form-control"%>
+      <%= f.text_field :keyword, placeholder: "キーワード", rows: "10" ,class: "form-control"%>
+      <%= f.submit "投稿", class: "btn btn-outline-primary" %>
+      </div></div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/second_footer"%>
