@@ -10,7 +10,7 @@ def make_address_hash
 end
 
 def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :encrypted_password, :address_id])
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :encrypted_password, :address_id, :image])
 end
 
 end

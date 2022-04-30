@@ -1,8 +1,7 @@
 <%= render "shared/header" %>
-<div class="wrapper">
-  <div class="side_bar">
-    <%= render "shared/side_bar" %>
+<div class="container-fluid bg-white">
+  <div class="d-flex flex-row bd-highlight mb-3">
+    <div class="col-2 "><%= render "shared/side_bar" %></div>
+    <div class="col-10"><%= render "shared/main_bar" %></div>
   </div>
-  <div class="main_bar">
-    <%= render "shared/main_bar" %>
-  </div>
+</div>

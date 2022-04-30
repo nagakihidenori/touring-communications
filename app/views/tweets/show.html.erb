@@ -1,0 +1,33 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @tweet.title %>
+    </h2>
+    <div class="item-img-content">
+      <%= image_tag @tweet.image, class: "img-fluid" if @tweet.image.attached? %>
+    </div>
+
+
+    <% if user_signed_in? %>
+    <% if @tweet.user_id == current_user.id%>
+    <%= link_to "ツイートの編集", edit_tweet_path(@tweet), method: :get, class: "item-red-btn" %>
+    <p class="or-text">or</p>
+    <%= link_to "削除", tweet_path(@tweet), method: :delete, class:"item-destroy" %>
+    <% end %>
+    <% end %>
+
+    <div class="item-explain-box">
+      <span><%= @tweet.text %></span>
+    </div>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+<div class="googlemap">
+    <iframe src="http://maps.google.co.jp/maps?q=茂庭&output=embed&t=m&z=14&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+  </div>
