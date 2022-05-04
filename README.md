@@ -39,6 +39,9 @@ Touring-Communications
 
 ---
 # 実施予定の機能
+現在投稿したものの詳細画面を実装中。
+GoogleMapとAPI連携で場所を記録できるようにしている。
+今後は自分の投稿したものをまとめるマイページを実装予定。
 
 ---
 # データベース設計
@@ -57,6 +60,14 @@ Touring-Communications
 
 ---
 # ローカルでの動作方法
+% git clone https://github.com/nagakihidenori/touring-communications.git
+% cd touring-communications
+% bundle install
+% rails db:create
+% rails db:migrate
+% yarn install
 
 ---
 # 工夫したポイント
+カルーセルを用いて動きを持たせ、少ない表示領域で多くの投稿を見せられるかを工夫した。
+また、愛車紹介の表示はリロードするごとに違う投稿が並ぶようにし多くの投稿が見られるようにした。
