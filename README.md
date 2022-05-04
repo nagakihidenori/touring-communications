@@ -53,19 +53,19 @@ GoogleMapとAPI連携で場所を記録できるようにしている。
 
 ---
 # 開発環境
-*フロントエンド
-*バックエンド
-*インフラ
-*テスト
+*フロントエンド  
+*バックエンド  
+*インフラ  
+*テスト  
 
 ---
 # ローカルでの動作方法
-% git clone https://github.com/nagakihidenori/touring-communications.git
-% cd touring-communications
-% bundle install
-% rails db:create
-% rails db:migrate
-% yarn install
+% git clone https://github.com/nagakihidenori/touring-communications.git  
+% cd touring-communications  
+% bundle install  
+% rails db:create  
+% rails db:migrate  
+% yarn install  
 
 ---
 # 工夫したポイント
