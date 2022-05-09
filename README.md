@@ -7,7 +7,13 @@ Touring-Communications
 
 # URL
 
+https://touring-communications.herokuapp.com/
+ユーザー名：admin
+パスワード：2222
+
 # テスト用アカウント
+メールアドレス：yuki@yuki
+パスワード：123456a
 
 # 利用方法
 ## 写真投稿
