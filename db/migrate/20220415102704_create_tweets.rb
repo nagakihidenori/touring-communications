@@ -6,6 +6,8 @@ class CreateTweets < ActiveRecord::Migration[6.0]
       t.string :title,     null: false
       t.text :text,        null: false
       t.string :keyword,     null: false
+      t.float :latitude
+      t.float :longitude
       t.references :user,  null: false,foreign_key: true
       t.timestamps
     end

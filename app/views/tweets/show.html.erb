@@ -5,11 +5,11 @@
     <h2 class="name">
       <%= @tweet.title %>
     </h2>
-    <div class="item-img-content">
-      <%= image_tag @tweet.image, class: "img-fluid" if @tweet.image.attached? %>
+    <div style="width:70vw" class="container">
+      <%= image_tag @tweet.image, class: "img-fluid " if @tweet.image.attached? %>
     </div>
 
-
+    <div class="text-center">
     <% if user_signed_in? %>
     <% if @tweet.user_id == current_user.id%>
     <%= link_to "ツイートの編集", edit_tweet_path(@tweet), method: :get, class: "item-red-btn" %>
@@ -17,6 +17,7 @@
     <%= link_to "削除", tweet_path(@tweet), method: :delete, class:"item-destroy" %>
     <% end %>
     <% end %>
+    </div>
 
     <div class="item-explain-box">
       <span><%= @tweet.text %></span>
@@ -27,7 +28,22 @@
         <span>お気に入り 0</span>
       </div>
     </div>
-<div class="googlemap">
-    <iframe src="http://maps.google.co.jp/maps?q=茂庭&output=embed&t=m&z=14&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+    <div class="center-block">
+    <div class="map">
+      <div id="map" style="height: 50vh; width: 50vw;"></div>
+    </div>
+    </div>
+    <div type="text/javascript">
+      <script>
+      function initMap(){
+      let map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %> },
+      zoom: 15
+      });
+      }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBt9lyT2DcfbljS4heI7PJZoqDowZas9E&callback=initMap" async defer></script>
+    </div>
   </div>
+</div>
+<%= render "shared/second_footer" %>
